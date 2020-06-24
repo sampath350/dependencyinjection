@@ -8,12 +8,13 @@ import com.di.javaclass.SMSServiceInjector;
 public class MessageDITest {
 	
 	public static void main(String[] args) {
-		String msg = "Test Service";
+		String msg = "Hi Sampath";
 		String email = "sampath@sg.com";
 		String phone = "94522234";
 		IMsgServiceInjector injector = null;
 		IConsumerServices app = null;
 		
+		try {
 		//Send email
 		injector = new EmailServiceInjector();
 		app = injector.getConsumer();
@@ -23,6 +24,16 @@ public class MessageDITest {
 		injector = new SMSServiceInjector();
 		app = injector.getConsumer();
 		app.processMessages(msg, phone);
+		
+		//Singleton call
+		injector = new EmailServiceInjector("E");
+		app=injector.getConsumer();
+		app.processMessages("Hi Kumar", "kumar@gmail.com");
+	
+		}
+		catch (Exception e) {
+			System.out.println("Exception "+e);
+		}
 	}
 
 }

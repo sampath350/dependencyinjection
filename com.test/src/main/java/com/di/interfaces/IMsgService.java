@@ -1,5 +1,5 @@
 package com.di.interfaces;
 
-public interface IMsg_Service {
+public interface IMsgService {
 	void sendMessage(String msg, String rec);
 }
