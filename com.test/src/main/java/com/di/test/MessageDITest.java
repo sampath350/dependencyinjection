@@ -28,7 +28,7 @@ public class MessageDITest {
 		//Singleton call
 		injector = new EmailServiceInjector("E");
 		app=injector.getConsumer();
-		app.processMessages("Hi Kumar", "kumar@gmail.com");
+		app.processMessages("This is Singleton", "kumar@gmail.com");
 	
 		}
 		catch (Exception e) {
